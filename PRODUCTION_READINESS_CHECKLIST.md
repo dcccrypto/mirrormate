@@ -56,29 +56,17 @@
   - Add user-friendly rate limit messages
 
 #### Day 3: Legal Compliance
-- [x] **Privacy Policy** (✅ COMPLETED)
-  - ✅ Comprehensive policy covering all data collection
-  - ✅ GDPR compliance for EU users
-  - ✅ CCPA compliance for California residents
-  - ✅ COPPA compliance for age requirements
-  - ✅ Apple App Store specific requirements
-  - ✅ Camera/Microphone permission disclosures
-  - ✅ Third-party service disclosures (Supabase, Stripe, Gemini, Sentry, PostHog)
-  - ✅ Beautiful HTML template ready for deployment (website_templates/privacy-policy.html)
-  - ⚠️ **ACTION REQUIRED:** Publish to public website before App Store submission
+- [ ] **Privacy Policy** (2 hours)
+  - Use TermsFeed or iubenda template
+  - Cover: data collection, AI processing, video storage, third-party services
+  - Add GDPR compliance (if serving EU)
+  - Publish on a simple webpage
   
-- [x] **Terms of Service** (✅ COMPLETED)
-  - ✅ Comprehensive terms covering all use cases
-  - ✅ Detailed subscription and payment terms
-  - ✅ Stripe-specific payment and refund policies
-  - ✅ 7-day free trial terms clearly defined
-  - ✅ Binding arbitration clause and class action waiver
-  - ✅ Apple-specific terms (third-party beneficiary, warranty disclaimer)
-  - ✅ Age requirements and parental consent
-  - ✅ Acceptable use and prohibited activities
-  - ✅ AI accuracy disclaimer
-  - ✅ Beautiful HTML template ready for deployment (website_templates/terms-of-service.html)
-  - ⚠️ **ACTION REQUIRED:** Publish to public website before App Store submission
+- [ ] **Terms of Service** (2 hours)
+  - Cover: user conduct, content ownership, subscription terms
+  - Add refund policy
+  - Include disclaimer about AI accuracy
+  - Publish alongside Privacy Policy
 
 #### Day 4-5: App Store Preparation
 - [ ] **Create App Store Assets** (4 hours)

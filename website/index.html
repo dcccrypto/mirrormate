@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MirrorMate - AI-powered communication coaching app. Improve your presentation skills with instant AI feedback on body language, vocal delivery, and more.">
+    <meta name="keywords" content="communication coaching, presentation skills, public speaking, AI feedback, video analysis">
+    <title>MirrorMate - AI-Powered Communication Coaching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 50px;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 40px;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 50px;
+            background: #f8f9fa;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 50px;
+            background: white;
+        }
+        
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 20px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: #666;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+        
+        .pricing-cards {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .pricing-card {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #ffd700;
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: "POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: #333;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        
+        .pricing-card h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 3em;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .price-period {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 50px 50px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9em;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+                min-height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .hero p {
+                font-size: 1.1em;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+            
+            .features, .how-it-works, .pricing {
+                padding: 40px 20px;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            footer {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">🪞 MirrorMate</div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Master Your Communication Skills</h1>
+        <p>AI-powered coaching for presentations, interviews, and public speaking</p>
+        <div class="cta-buttons">
+            <a href="#download" class="btn-primary">Download on App Store</a>
+            <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Why Choose MirrorMate?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <h3>Video Analysis</h3>
+                <p>Record your presentations and get instant AI-powered feedback on your delivery, body language, and vocal patterns.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>AI Insights</h3>
+                <p>Advanced AI analyzes your communication style, identifying strengths and areas for improvement with actionable feedback.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detailed Reports</h3>
+                <p>Get comprehensive reports on vocal clarity, body language, eye contact, gestures, and overall confidence scores.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💪</div>
+                <h3>Practice Exercises</h3>
+                <p>Personalized coaching exercises tailored to your specific needs to help you improve faster.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Key Moments</h3>
+                <p>AI identifies critical moments in your presentation, highlighting both strengths and opportunities for growth.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Track Progress</h3>
+                <p>Monitor your improvement over time with detailed analytics and historical performance data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Record Your Practice</h3>
+                    <p>Use your iPhone camera to record yourself practicing a presentation, speech, or interview response.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>AI Analysis</h3>
+                    <p>Our advanced AI analyzes your video, evaluating vocal delivery, body language, facial expressions, and communication patterns.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Get Feedback</h3>
+                    <p>Receive detailed insights with confidence scores, strengths, growth opportunities, and personalized practice exercises.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Improve & Repeat</h3>
+                    <p>Practice with targeted exercises, record again, and watch your communication skills soar!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <h2>Simple, Transparent Pricing</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="price">$0</div>
+                <div class="price-period">Forever</div>
+                <ul class="features-list">
+                    <li>3 analyses per day</li>
+                    <li>Basic confidence score</li>
+                    <li>Impression tags</li>
+                    <li>AI feedback</li>
+                </ul>
+                <a href="#download" class="btn-primary">Get Started</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>Premium</h3>
+                <div class="price">$9.99</div>
+                <div class="price-period">per month</div>
+                <ul class="features-list">
+                    <li>Unlimited analyses</li>
+                    <li>Advanced vocal analysis</li>
+                    <li>Body language insights</li>
+                    <li>Personalized strengths</li>
+                    <li>Growth opportunities</li>
+                    <li>Practice exercises</li>
+                    <li>Key moments timeline</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#download" class="btn-primary">Start 7-Day Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MirrorMate</h3>
+                <p>AI-powered communication coaching to help you become a confident, compelling speaker.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:support@mirrormate.app">support@mirrormate.app</a></li>
+                    <li><a href="/contact">Contact Form</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 MirrorMate. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
