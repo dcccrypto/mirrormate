@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict/>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.mirrormate.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mirrormate</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>MirrorMate needs camera access to record your reflection videos.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>MirrorMate needs microphone access to analyze your voice and tone.</string>
+</dict>
+</plist>
